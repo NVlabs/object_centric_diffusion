@@ -21,7 +21,6 @@ body {
 .teaser .hero-body {
   padding-top: 0;
   padding-bottom: 3rem;
-  color:Tomato;
 }
 
 .teaser {
@@ -68,24 +67,28 @@ body {
     font-weight: bolder;
 }
 
-
-.publication-authors a {
-  color: rgb(118, 185, 0) !important;
-  text-decoration: underline;
+.publication-authors {
 }
 
+.publication-authors a {
+   /* color: hsl(204, 86%, 53%) !important; */
+  color: rgb(118, 185, 0) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
 
 .author-block {
   display: inline-block;
 }
 
-.author-block a:href {
-  color: rgb(118, 185, 0);
-}
-
 .publication-banner img {
 }
 
+.publication-authors {
+  /*color: #4286f4;*/
+}
 
 .publication-video {
     position: relative;
@@ -115,10 +118,12 @@ body {
 .results-carousel .item {
   margin: 5px;
   overflow: hidden;
-  border: 1px solid #bbb;
+  border: 0px solid #bbb;
   border-radius: 10px;
   padding: 0;
-  font-size: 0;
+
+  font-size: 16;
+  text-align: center;
 }
 
 .results-carousel video {
