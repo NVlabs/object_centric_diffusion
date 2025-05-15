@@ -1,0 +1,44 @@
+name: rlbench
+task_name: close_jar
+
+shape_meta: &shape_meta
+  # acceptable types: rgb, low_dim
+  obs:
+    point_cloud:
+      shape: [1024, 3]
+      type: point_cloud
+    agent_pos:
+      shape: [7]
+      type: low_dimx
+  action:
+    shape: [8]
+
+env_runner:
+  _target_: env_rlbench.runner.rlbench_runner.RLBenchRunner
+  root_dir: "/tmp/rlbench_zarr/test/${task.task_name}/all_variations/"
+  task_name: ${task.task_name}
+
+  has_lang_emb: False
+  has_stage_emb: False
+  enable_stage: False
+  use_fp: True
+  fp_cam_name: cam_wrist
+  pose_estimation_wrapper: null
+
+dataset:
+  _target_: diffusion_policy_3d.dataset.rlbench_dataset.RLBenchDataset
+  root_dir: "/tmp/rlbench_zarr/train/${task.task_name}/all_variations/"
+
+  horizon: 4
+  pad_before: 1
+  pad_after: 4
+  seed: 42
+  val_ratio: 0.1
+  max_train_episodes: 100
+  has_lang_emb: False
+  has_stage_emb: False
+  random_aug: True
+  symmetric_axis: null
+  symmetric_theta_start: null
+  symmetric_theta_end: null
+  symmetric_theta_step: null

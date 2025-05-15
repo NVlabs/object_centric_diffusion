@@ -1,0 +1,20 @@
+name: rlbench
+task_name: multitask
+
+shape_meta: &shape_meta
+  # acceptable types: rgb, low_dim
+  obs:
+    point_cloud:
+      shape: [1024, 3]
+      type: point_cloud
+    agent_pos:
+      shape: [7]
+      type: low_dimx
+  action:
+    shape: [8]
+
+env_runner: null
+
+dataset:
+  _target_: diffusion_policy_3d.dataset.rlbench_dataset_list.RLBenchDatasetList
+  root_dir: "/tmp/rlbench_zarr/train"  # overrides all single-task configs

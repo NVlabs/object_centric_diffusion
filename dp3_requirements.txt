@@ -1,0 +1,17 @@
+zarr==2.12.0
+wandb
+omegaconf
+hydra-core==1.2.0
+dill==0.3.5.1
+einops==0.4.1
+diffusers==0.11.1
+huggingface-hub==0.23.3
+numba==0.58.1
+moviepy
+imageio
+av
+matplotlib
+termcolor
+
+# CLIP
+ftfy==6.2.0
